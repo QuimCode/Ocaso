@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct1mf0do1q5vx"]
+[gd_scene load_steps=6 format=3 uid="uid://ct1mf0do1q5vx"]
 
 [ext_resource type="Texture2D" uid="uid://cbvpvysimjuan" path="res://Resources/Images/menu_test_01.jpg" id="1_lgtns"]
+[ext_resource type="Script" path="res://Scripts/Menu Scripts/menu_script.gd" id="1_s57rd"]
+[ext_resource type="Script" path="res://Scripts/Menu Scripts/Sonido/global_mus_menu.gd" id="1_wpcy7"]
+[ext_resource type="AudioStream" uid="uid://cir0od5x8plo1" path="res://Resources/Music/musica_menu01.mp3" id="3_7ofd3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gv7q"]
+bg_color = Color(0.0541185, 0.0392914, 0.0185943, 1)
 
 [node name="Menú" type="Control"]
 layout_mode = 3
@@ -9,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s57rd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -26,34 +33,46 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -122.0
-offset_top = -117.0
-offset_right = 128.0
-offset_bottom = 117.0
+offset_left = -98.5
+offset_top = -135.0
+offset_right = 98.5
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="iniciar_bt" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_1gv7q")
 text = "INICIAR"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="cargar_bt" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "CARGAR
-"
+theme_override_styles/normal = SubResource("StyleBoxFlat_1gv7q")
+text = "CARGAR"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="opciones_bt" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "OPCIONES
-"
+theme_override_styles/normal = SubResource("StyleBoxFlat_1gv7q")
+text = "OPCIONES"
 
-[node name="Button4" type="Button" parent="VBoxContainer"]
+[node name="salir_bt" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "SALIR
-"
+theme_override_styles/normal = SubResource("StyleBoxFlat_1gv7q")
+text = "SALIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7ofd3")
+autoplay = true
+bus = &"Musica"
+script = ExtResource("1_wpcy7")
+
+[connection signal="pressed" from="VBoxContainer/iniciar_bt" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/cargar_bt" to="." method="_on_cargar_bt_pressed"]
+[connection signal="pressed" from="VBoxContainer/opciones_bt" to="." method="_on_opciones_bt_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir_bt" to="." method="_on_salir_bt_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://fncccrm0m24e"]
+
+[ext_resource type="Texture2D" uid="uid://cbvpvysimjuan" path="res://Resources/Images/menu_test_01.jpg" id="1_vswme"]
+[ext_resource type="Script" path="res://Scripts/Menu Scripts/Sonido/opcion_volumen.gd" id="2_38k4m"]
+[ext_resource type="Script" path="res://Scripts/Menu Scripts/menu_script.gd" id="3_tce18"]
+[ext_resource type="AudioStream" uid="uid://cir0od5x8plo1" path="res://Resources/Music/musica_menu01.mp3" id="4_fyn5m"]
+
+[node name="opciones_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vswme")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -135.0
+offset_right = 98.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.001
+value = 100.0
+script = ExtResource("2_38k4m")
+
+[node name="volver_bt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "VOLVER
+"
+script = ExtResource("3_tce18")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+physics_interpolation_mode = 1
+stream = ExtResource("4_fyn5m")
+autoplay = true
+bus = &"Musica"
+
+[connection signal="pressed" from="VBoxContainer/volver_bt" to="VBoxContainer/volver_bt" method="_on_volver_bt_pressed"]
