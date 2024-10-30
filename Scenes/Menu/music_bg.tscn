@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://df6bd83g2wlr0"]
+
+[ext_resource type="AudioStream" uid="uid://cir0od5x8plo1" path="res://Resources/Music/musica_menu01.mp3" id="1_obwgc"]
+[ext_resource type="Script" path="res://Scripts/Menu Scripts/Sonido/global_mus_menu.gd" id="2_b6l80"]
+
+[node name="music_bg" type="AudioStreamPlayer"]
+stream = ExtResource("1_obwgc")
+autoplay = true
+script = ExtResource("2_b6l80")
