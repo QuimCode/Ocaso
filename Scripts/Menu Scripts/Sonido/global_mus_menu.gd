@@ -1,34 +1,26 @@
-#extends Node
-#
-#var volume: float = 0  # Volumen inicial en decibelios
-#var music_player: AudioStreamPlayer  # Variable para almacenar la referencia al AudioStreamPlayer
-#
-#func _ready():
-	#var current_scene = get_tree().current_scene
-	## Cambia esto por la ruta correcta al nodo AudioStreamPlayer en tu escena
-	#music_player = current_scene.get_node("AudioStreamPlayer")  
-	#if music_player:
-		#print("AudioStreamPlayer encontrado.")
-	#else:
-		#print("AudioStreamPlayer no encontrado.")
-#
-#func set_volume_db(new_volume: float) -> void:
-	## Actualiza el volumen en el AudioStreamPlayer y guarda el valor
-	#volume = new_volume
-	#if music_player:  # Asegúrate de que music_player no sea null
-		#music_player.volume_db = volume
+extends AudioStreamPlayer
 
-extends Node
+var music_tracks = {
+	"menu": preload("res://Resources/Music/musica_menu01.mp3"),
+	#"gameplay": preload("res://path/to/gameplay_music.ogg"),
+	#"safe_zone": preload("res://path/to/safe_zone_music.ogg"),
+	#"credits": preload("res://path/to/credits_music.ogg")
+}
 
-var music_player: AudioStreamPlayer  # Variable para almacenar el AudioStreamPlayer
-var volume: float = 0  # Volumen inicial en decibelios
-
-func _ready() -> void:
-	var current_scene = get_tree().current_scene
-	music_player = current_scene.get_node("AudioStreamPlayer")  # Asegúrate de que esta ruta sea correcta
-
-func set_volume_db(new_volume: float) -> void:
-	if music_player:  # Verifica que music_player no sea null
-		music_player.volume_db = new_volume
+func play_music(track_name: String) -> void:
+	if music_tracks.has(track_name):
+		if self.stream != music_tracks[track_name]:
+			self.stream = music_tracks[track_name]
+			self.play()
+		elif not self.playing:
+			self.play()
 	else:
-		print("AudioStreamPlayer no encontrado.")
+		print("Track no encontrado:", track_name)
+
+func set_volume(db: float) -> void:
+	self.volume_db = db
+
+func stop_music() -> void:
+	print("Stopping music")  # Línea de prueba
+	self.stop()              # Intenta detener la música
+	self.seek(0)             # Reinicia la posición de la pista al inicio

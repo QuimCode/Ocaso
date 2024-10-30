@@ -1,18 +1,14 @@
 extends HSlider
 
-@export
-var bus_name: String = "Musica"
-
 func _ready() -> void:
-	# Configura el valor del slider al volumen actual del Singleton
-	value = GlobalMusMenu.volume
-	# Conectar la señal value_changed al método
-	value_changed.connect(_on_value_changed)
+	# Establece el valor del slider en función del volumen guardado
+	value = int(lerp(0, 100, (GlobalMusMenu.volume_db + 80) / 80.0))
 
-func _on_value_changed(new_value: float) -> void:
-	# Convierte el valor del slider de 0-100 a -80 a 0 dB
-	var db_value = lerp(-80, 0, new_value / 100.0)  # Usar new_value aquí
-	if GlobalMusMenu:  # Verifica si GlobalMusMenu existe
-		GlobalMusMenu.set_volume_db(db_value)  # Ajusta el volumen en el Singleton
-	else:
-		print("GlobalMusMenu no está disponible.")
+func _on_slider_value_changed(value: int) -> void:
+	# Calcula el volumen en dB; 0 en el slider será -80 dB, y 100 será 0 dB
+	var db = lerp(-50, 0, value / 100.0)
+	GlobalMusMenu.volume_db = db  # Guarda el valor en el Singleton
+	GlobalMusMenu.set_volume(db)
+
+func _on_value_changed(value: float) -> void:
+	_on_slider_value_changed(int(value))
