@@ -23,3 +23,7 @@ GlobalMusMenu="*res://Scripts/Menu Scripts/Sonido/global_mus_menu.gd"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[filesystem]
+
+import/blender/enabled=false

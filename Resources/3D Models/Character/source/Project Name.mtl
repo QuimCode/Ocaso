@@ -1,0 +1,52 @@
+newmtl ModelLashBottom_Material001_ebfb512b-b144-4064-8f82-397d808b0008
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Tifa_Hair_D&Tifa_Hair_D_opacity.png
+newmtl ModelLashTop_Material002_8f4c268f-4232-4717-b579-b17b5dc333e2
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Tifa_Hair_D&Tifa_Hair_D_opacity_1.png
+newmtl ModelArms1_Material006_c1aaa989-cb02-4c30-9222-1cd91063d2c7
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Body_D2.jpg
+newmtl ModelBody2_Material007_989fbe80-2c4c-4f60-b751-c9b2c4f7bbf7
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Body_D1.jpg
+newmtl ModelArms2_Material008_bf392441-1b54-4f6a-b08a-c2d8910fe6ce
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Body_D2.jpg
+newmtl ModelBody1_Material009_34bf5ee7-de3d-48a7-856d-54c42fd6e342
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Body_D1.jpg
+newmtl ModelEyes_Material010_152a4991-888b-4cef-87b7-0cc7ab431885
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Eye_Red_D.jpg
+newmtl ModelHairLoose_Material011_15b83ea0-157b-428d-92e5-287643f0931a
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Tifa_Hair_D&Tifa_Hair_D_opacity_2.png
+newmtl ModelHead_Material012_28993697-f092-4ddf-9dd2-8002c7ce9600
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd F_D.jpg
+newmtl ModelLegs_Material013_091b44b8-adb4-48e6-a4a0-187feca1fcb9
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Body_D3.jpg
+newmtl ModelMouth_Material014_b6c920bf-a5ac-416d-b3c8-744ddd5281b4
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Common_Mouth_Player_C.jpg
+newmtl ModelNails1_Material015_3cb3fd89-9284-4a72-8591-76daed3f904d
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd FWSANancyArms_1004.jpg
+newmtl ModelNails2_Material016_d7301103-161d-40a1-b101-d169bb78a6ad
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd FWSANancyLegs_1003.jpg
